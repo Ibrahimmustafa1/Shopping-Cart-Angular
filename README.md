@@ -1,4 +1,15 @@
-# EcommerceApp
+# Shopping Cart
+Shopping Cart is An Angular App simulates Cart Shop :
+<li>Angular</li>
+<li>Fake Store Api</li>
+<li>RWD</li>
+<li>SPA</li>
+
+
+
+
+# DEMO
+ <a href="https://ibrahimmustafa1.github.io/Shopping-Cart-Angular/#/products" target="_blank">Click Here</a>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
