@@ -1,0 +1,4 @@
+    <label for="cate">Categories</label>
+    <select name="category" [(ngModel)]="category" (change)="getProductsByCategory()" id="cate" class="form-control">
+      <option *ngFor="let cate of categories" value="{{cate}}">{{cate}}</option>
+    </select>

@@ -1,0 +1,38 @@
+<div class="p-5 d-flex flex-column align-items-end">
+  <button class="btn btn-danger w-25 mb-3" (click)="clearShoppingCart()">Clear Shopping Cart</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th class="ms-5 d-flex">Quantity</th>
+        <th>Total</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cartProducts;let i=index">
+        <td><img [src]="product.image" class="w-100" style="height:70px" alt=""></td>
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+        <td class="">
+          <div class="quantity d-flex w-100">
+            <input type="number" [(ngModel)]="product.quantity" (change)="getCartTotalPrice()" class="form-control w-50"
+              min="1">
+          </div>
+        </td>
+        <td>{{product.price*product.quantity}}</td>
+        <td><button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div class=" w-100 d-flex justify-content-between container">
+    <h1> TOTAL :{{total}}</h1>
+    <button (click)="buyCart()" [disabled]="cartProducts.length == 0" class="btn btn-primary">Buy Cart</button>
+  </div>
+</div>
+<div class="alert alert-danger" *ngIf="Error">
+  <p>{{Error}}</p>
+</div>

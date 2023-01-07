@@ -1,0 +1,19 @@
+<div class="mt-5">
+  <div class="my-3 w-25">
+    <app-categories (outputCategory)="getProductsByCategory($event)" ></app-categories>
+  </div>
+  <div class="row p-3"  *ngIf="!loading">
+    <div class="col-md-4 col-lg-3" *ngFor="let product of products" >
+      <app-product-thumbnail (cartProduct)="addToCart($event)" [product]="product"></app-product-thumbnail>
+    </div>
+  </div>
+</div>
+
+<div class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+  loading ...
+</div>
+
+<div class="alert alert-danger" *ngIf="Error">
+  <p>{{Error}}</p>
+</div>

@@ -1,0 +1,16 @@
+<div class="item">
+  <img [src]="product.image" class="w-100" alt="">
+  <div class="body"  [routerLink]="['/products/',product.id]">
+    <h4>{{product.title}}</h4>
+    <p>{{product.description}}</p>
+  </div>
+  <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
+    <button class="btn btn-success" *ngIf="isAdd" (click)="isAdd=!isAdd">Add To Cart</button>
+    <div class=" mb-2 d-flex w-75 " *ngIf="!isAdd">
+      <input type="number" min="1" value="1" [(ngModel)]="quantity" class="form-control me-2">
+      <button class="btn btn-danger"  (click)="addTocart(product)" (click)="isAdd=!isAdd" >Add</button>
+    </div>
+    <span>{{product.price|currency:"EGP"}}</span>
+
+  </div>
+</div>
